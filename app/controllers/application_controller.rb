@@ -15,4 +15,26 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || root_path)
   end
 
+  private
+  def authenticate_inviter!
+    unless current_user.role=='admin'
+      redirect_to root_url, :alert => "Access Denied"
+    end
+    super
+  end
+
+#customizing fields for devise_invitable
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    # Only add some parameters
+    devise_parameter_sanitizer.for(:accept_invitation).concat [:name]
+    # Override accepted parameters
+    devise_parameter_sanitizer.for(:accept_invitation) do |u|
+      u.permit(:name, :password, :password_confirmation,
+               :invitation_token)
+    end
+  end
 end

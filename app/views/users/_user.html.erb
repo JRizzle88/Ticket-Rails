@@ -1,4 +1,7 @@
 <td>
+  <%= link_to user.name, user %>
+</td>
+<td>
   <%= link_to user.email, user %>
 </td>
 <%= form_for(user) do |f| %>
@@ -6,9 +9,15 @@
     <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, {}, { :class => 'form-control' }) %>
 </td>
 <td>
-    <%= f.submit 'Change Role', :class => 'btn btn-warning' %>
+    <%= f.submit "Update", :class => 'glyphicon glyphicon-floppy-saved btn btn-success' %>
 </td>
 <% end %>
 <td>
-  <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger') unless user == current_user %>
+  <%= user.created_at.strftime("%d %b. %Y") if user.created_at %>
+</td>
+<td>
+  <%= user.last_sign_in_at.strftime("%d %b. %Y") if user.last_sign_in_at %>
+</td>
+<td>
+  <%= link_to("", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'glyphicon glyphicon-remove btn btn-danger') unless user == current_user %>
 </td>

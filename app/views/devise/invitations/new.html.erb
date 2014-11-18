@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <h3><%= t "devise.invitations.new.header" %></h3>
+
+    <%= render 'layouts/admin/dashboardnavigation' %>
+
+      <div class="authform">
+        <%= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
+          <%= devise_error_messages! %>
+
+          <% resource.class.invite_key_fields.each do |field| -%>
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field field, :class => 'form-control' %>
+            </div>
+          <% end -%>
+
+          <%= f.button :submit, t("devise.invitations.new.submit_button"), :class => 'btn btn-success' %>
+        <% end %>
+      </div>
+
+  </div>
+</div>

@@ -1,9 +1,19 @@
 <div class="container">
   <div class="row">
     <h3>Users</h3>
+    <%= render '/layouts/admin/dashboardnavigation' %>
     <div class="column">
-      <table class="table">
+      <table class="table table-striped">
         <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Email Address</th>
+            <th>User Role</th>
+            <th>Update</th>
+            <th>Registered</th>
+            <th>Last Login</th>
+            <th>Delete</th>
+          </tr>
           <% @users.each do |user| %>
             <tr>
               <%= render user %>
