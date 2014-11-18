@@ -14,6 +14,7 @@
  *= require_self
  */
 
+/* Adding Glyphicons icon font - View all Glyphicons here http://getbootstrap.com/components/#glyphicons */
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: url('../assets/glyphicons-halflings-regular.eot');
@@ -21,4 +22,51 @@
        url('../assets/glyphicons-halflings-regular.woff') format('woff'),
        url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+/* Extras */
+.alert {
+  position: absolute;
+  width: 100%;
+  max-width: 1160px;
+}
+
+/* Header */
+header .btn {
+  border: 0;
+  border-radius: 0;
+}
+
+
+/*
+ * Anything that is ABOVE the queries below will be queried no matter what and
+ * will be overwritten by anything of the same ID or Class in the media queries below.
+*/
+/* Queries for any device less than 1200px width - Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+  .alert {
+    max-width: 950px;
+  }
+}
+
+/* Queries for any device less than 992px width - Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  .alert {
+    max-width: 950px;
+  }
+}
+
+/* Queries for any device less than 768px width - Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Queries for any device less than 480px width - Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Queries for any device less than 320px width - Custom, Iphone Retina */
+@media only screen and (max-width : 320px) {
+
 }

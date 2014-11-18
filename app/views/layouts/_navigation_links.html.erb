@@ -2,15 +2,41 @@
   <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
   <li class="<%= 'active' if current_page?(glyphicons_path) %>"><%= link_to "Glyphicons", glyphicons_path %></li>
   <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path %></li>
+
 <% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
-<% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-<% end %>
-<% if user_signed_in? %>
-  <% if current_user.admin? %>
-    <li><%= link_to 'Users', users_path %></li>
+  <% if current_user.user? || current_user.vip? %>
+  <li>
+    <div class="dropdown">
+      <button class="btn btn-success btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        <span class="glyphicon-class glyphicon glyphicon-cog"></span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li><%= link_to current_user.name, edit_user_registration_path %></li>
+        <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+      </ul>
+    </div>
+  </li>
   <% end %>
+  <% if current_user.admin? %>
+  <li>
+    <div class="dropdown">
+      <button class="btn btn-success btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        <span class="glyphicon-class glyphicon glyphicon-cog"></span>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <li><%= link_to current_user.name, edit_user_registration_path %></li>
+        <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+        <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+        <li class="divider"></li>
+        <li><%= link_to 'Administration', admin_dashboard_path %></li>
+      </ul>
+    </div>
+  </li>
+  <% end %>
+<% else %>
+    <li><%= link_to 'Sign in', new_user_session_path %></li>
+    <li><%= link_to 'Sign up', new_user_registration_path %></li>
 <% end %>

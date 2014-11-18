@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   get '/privacy'  => 'high_voltage/pages#show', id: 'privacy'
   get '/terms'    => 'high_voltage/pages#show', id: 'terms'
 
+  namespace :admin do
+    get 'dashboard' => 'dashboard#index'
+    root to: 'dashboard#index'
+  end
+
+
 end
