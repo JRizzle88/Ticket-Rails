@@ -3,7 +3,9 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Progressor" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Progressor" %>">
+    <meta name="description" content="<%= meta_description %>">
+    <meta name="author" content="<%= meta_author %>">
+    <meta name="Keywords" content="<%= meta_keywords %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -14,7 +16,31 @@
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
+
+       <% if content_for?(:jumbotron) %>
+        <div class="jumbotron">
+          <div class="container">
+            <%= yield :jumbotron %>
+          </div>
+        </div>
+       <% end %>
+
        <%= yield %>
     </main>
+    <footer>
+      <div class="container">
+        <hr>
+        <p class="pull-right">
+          <%= link_to '<span class="glyphicon-class glyphicon glyphicon-chevron-up"></span> Back to top'.html_safe, '#Top' %>
+        </p>
+        <p>
+          &copy; <%= Time.now.year %> <%= site_name %>
+          &bull;
+          <%= link_to "Privacy", privacy_path %></li>
+          &bull;
+          <%= link_to "Terms", terms_path %></li>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

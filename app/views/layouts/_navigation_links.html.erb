@@ -1,4 +1,7 @@
 <%# add navigation links to this file %>
+  <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
+  <li class="<%= 'active' if current_page?(glyphicons_path) %>"><%= link_to "Glyphicons", glyphicons_path %></li>
+  <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path %></li>
 <% if user_signed_in? %>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
