@@ -1,0 +1,8 @@
+<div class="panel">
+  Current user: <%= current_user.email %>
+</div>
+<div class="btn-group" role="group" aria-label="...">
+  <%= link_to 'Dashboard', admin_dashboard_path, :class => 'btn btn-success', id: 'tooltip-dashboard', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'Dashboard, the home of home.' %>
+  <%= link_to 'Users', users_path, :class => 'btn btn-success', id: 'tooltip-users', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'Add, Modify, or Delete Users' %>
+  <button type="button" class="btn btn-success">Invitations</button>
+</div>
