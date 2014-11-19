@@ -5,7 +5,10 @@ class Admin::DashboardController < Admin::ApplicationController
 
   def index
     Time.zone.now
+    @usersCount = User.count(:all)
     authorize User
+    @users = User.all.paginate page: params[:page],
+      per_page: 10
   end
 
   def show

@@ -14,30 +14,31 @@
               <th>Password</th>
             </tr>
             <% @users.each do |user| %>
-            <tr>
+              <tr>
                 <td><%= user.invited_by_type if user.invited_by_type %></td>
                 <td><%= user.email if user.email %></td>
                 <td><%= user.invitation_sent_at.strftime("%d %b. %Y - %H:%M") if user.invitation_sent_at %></td>
-                <td><%= user.invitation_accepted_at.strftime("%d %b. %Y - %H:%M") if user.invitation_accepted_at.present? %></td>
+                <td><%= user.invitation_accepted_at.strftime("%d %b. %Y - %H:%M") if user.invitation_accepted_at %></td>
                 <td><div class="glyphicon glyphicon-<%= user.encrypted_password == '' ? 'remove' : 'ok' %> btn btn-sm btn-<%= user.encrypted_password == '' ? 'danger' : 'success' %>"></div></td>
-            </tr>
+              </tr>
             <% end %>
           </tbody>
         </table>
-
     </div>
+
     <div class="col-lg-4 no-padding-right">
       <%= link_to 'Invite someone you know!', new_user_invitation_path, :class => 'btn btn-primary btn-block', id: 'tooltip-invites', data: {toggle: 'tooltip', placement: 'top'}, :'data-original-title' => 'Get them in here!' %>
       <hr>
       <div class="panel">
         <ul>
-          <li>Invite Friends</li>
-          <li>Invite Family</li>
-          <li>Invite Co-Workers</li>
-          <li>Email confirmation is required</li>
+          <h3>Features</h3>
+          <li>Invite whoever by email.</li>
+          <li>Email confirmation is required.</li>
+          <li>Green indicates the user has accepted the email confirmation and set a password.</li>
         </ul>
       </div>
     </div>
+
     <%= will_paginate @users %>
-  </div>
-</div>
+  </div> <!-- Row -->
+</div> <!-- Container -->
