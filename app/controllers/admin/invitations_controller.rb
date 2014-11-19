@@ -12,6 +12,8 @@ class Admin::InvitationsController < DeviseController
       authorize @user
     end
 
+    def get_by_sent
+      @users = User.
     def after_accept_path_for
       user_root_path
     end
