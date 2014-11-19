@@ -1,8 +1,11 @@
 <td>
-  <%= link_to user.name, user %>
+  <%= link_to("", user_path(user), :class => 'glyphicon glyphicon-user btn btn-success') %>
 </td>
 <td>
-  <%= link_to user.email, user %>
+  <%= user.name %>
+</td>
+<td>
+  <%= user.email %>
 </td>
 <%= form_for(user) do |f| %>
 <td>
