@@ -21,6 +21,7 @@ $(document).ready(function() {
   $('#tooltip-dashboard').tooltip();
   $('#tooltip-users').tooltip();
   $('#tooltip-invites').tooltip();
+  $('#tooltip-profile').tooltip();
   $('.container .row .alert').hide().delay(200).fadeIn(800).delay(4000).fadeOut(800)
 
 });

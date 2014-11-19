@@ -1,5 +1,5 @@
 <div class="panel">
-  Current user: <%= current_user.email %>
+  Current user: <%= link_to current_user.email, edit_user_registration_path, :class => 'glyphicon glyphicon-user btn btn-primary btn-sm', id: 'tooltip-profile', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'View Profile' %></div>
 </div>
 <div class="btn-group" role="group" aria-label="...">
   <%= link_to 'Dashboard', admin_dashboard_path, :class => 'btn btn-success', id: 'tooltip-dashboard', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Dashboard, the home of home.' %>

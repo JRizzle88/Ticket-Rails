@@ -3,7 +3,9 @@ class Admin::InvitationsController < DeviseController
     after_action :verify_authorized
 
     def index
-      @users = User.all
+      @users = User.all.paginate page: params[:page],
+        per_page: 10
+
       authorize User
     end
 
