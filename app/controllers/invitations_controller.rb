@@ -1,4 +1,4 @@
-class Users::InvitationsController < DeviseController
+class InvitationsController < DeviseController
     before_filter :authenticate_user!
     after_action :verify_authorized
 
@@ -8,7 +8,7 @@ class Users::InvitationsController < DeviseController
     end
 
     def show
-    
+
     end
 
     def after_accept_path_for
