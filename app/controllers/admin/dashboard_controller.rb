@@ -1,4 +1,4 @@
-class Admin::DashboardController < Admin::ApplicationController
+class Admin::DashboardController < ApplicationController
   include Pundit
   before_filter :authenticate_user!
   after_action :verify_authorized, :except => 'index'

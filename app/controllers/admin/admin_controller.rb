@@ -1,4 +1,4 @@
-class Admin::AdminController < Admin::ApplicationController
+class Admin::AdminController < ApplicationController
 	include Pundit
 	before_filter :authenticate_user!
 	after_action :verify_authorized
