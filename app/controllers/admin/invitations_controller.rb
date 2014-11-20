@@ -16,8 +16,9 @@ class Admin::InvitationsController < ApplicationController
 
     def get_by_sent
       @users = User
+    end
       def after_accept_path_for
         user_root_path
       end
-    end
+
 end
