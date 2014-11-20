@@ -1,4 +1,4 @@
-class Admin::InvitationsController < DeviseController
+class Admin::InvitationsController < ApplicationController
     before_filter :authenticate_user!
     after_action :verify_authorized
 
