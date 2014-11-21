@@ -23,5 +23,5 @@ $(document).ready(function() {
   $('#tooltip-invites').tooltip();
   $('#tooltip-profile').tooltip();
   $('.container .row .alert').hide().delay(200).fadeIn(800).delay(4000).fadeOut(800)
-
+  $('.bxslider').bxSlider();
 });

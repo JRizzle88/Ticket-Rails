@@ -43,12 +43,70 @@
   padding-right: 0px !important;
 }
 
+
 /* Header */
 header .btn {
   border: 0;
   border-radius: 0;
 }
 
+/* bxSlider - */
+/* Slide 1 */
+#slider {
+  position: relative;
+  z-index: 1;
+}
+
+.slide1-action {
+  display: block;
+  margin: 0 auto !important;
+  position: relative;
+  width: 200px;
+}
+#slide1-overlay1 {
+  position: relative;
+  width:100%;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top:-650px;
+  z-index:9999;
+}
+
+#slide1-overlay1 h2 {
+  padding: 20px 50px;
+  display:inline-block;
+  background: rgba(0,188,140,0.8);
+}
+
+#slide1-overlay2 {
+  position: relative;
+  width:100%;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0px;
+  z-index:9999;
+}
+#slide1-overlay2 h1 {
+  color: #00BC8C;
+  padding: 20px 50px;
+  display:inline-block;
+  background: rgba(255,255,255,1);
+  margin: 0px 0px 20px 0px;
+}
+/* Slide 2 */
+
+
+/* Services Main */
+.service-main p, .service-main h2 {
+  text-align: center;
+
+}
+
+.service-main h2 {
+  color: #00BC8C;
+}
 
 /*
  * Anything that is ABOVE the queries below will be queried no matter what and

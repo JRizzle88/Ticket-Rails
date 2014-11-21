@@ -1,9 +1,7 @@
+<% provide(:title, 'Progressor Dashboard') %>
+<%= render 'layouts/admin/dashboardnavigation' %>
 <div class="container">
-<div class="row">
-
-    <h3>Dashboard</h3>
-    <%= render 'layouts/admin/dashboardnavigation' %>
-
+  <div class="row">
       <div class="col-sm-6 no-padding-left">
         <div class="panel">
           <h3>Statistics</h3>
@@ -19,17 +17,19 @@
                 <th>Preview</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Subscription</th>
               </tr>
             <% @users.each do |user| %>
               <tr>
-                <td><%= link_to("", user_path(user), :class => 'glyphicon glyphicon-user btn btn-primary') %></td>
+                <td><%= link_to("", user_path(user), :class => 'glyphicon glyphicon-user btn btn-primary btn-sm') %></td>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
+                <td><%= user.role.capitalize %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
-        <%= will_paginate @users %>
+        <%= will_paginate @users %> <!-- For New Users area -->
       </div>
 
     </div> <!-- Row -->

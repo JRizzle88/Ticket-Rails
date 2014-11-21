@@ -17,20 +17,23 @@
     <main role="main">
        <%= render 'layouts/messages' %>
 
-      <!-- Jumbotron is useful method that can be used to display important headers on any page.
-           It can be moved around in this template to declare a different area. -->
-       <% if content_for?(:jumbotron) %>
-        <div class="jumbotron">
-          <div class="container">
-            <%= yield :jumbotron %>
-          </div>
-        </div>
-       <% end %>
 
        <%= yield %>
     </main>
     <footer>
-      <%= render 'layouts/main_footer' %>
+      <div class="container">
+        <hr>
+        <p class="pull-right">
+          <%= link_to '<span class="glyphicon-class glyphicon glyphicon-chevron-up"></span> Back to top'.html_safe, '#Top' %>
+        </p>
+        <p>
+          &copy; <%= Time.now.year %> <%= site_name %>
+          &bull;
+          <%= link_to "Privacy", privacy_path %></li>
+          &bull;
+          <%= link_to "Terms", terms_path %></li>
+        </p>
+      </div>
     </footer>
   </body>
 </html>
