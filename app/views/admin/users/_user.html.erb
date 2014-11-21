@@ -1,0 +1,29 @@
+<td>
+  <%= link_to("", admin_user_path(user), :class => 'glyphicon glyphicon-user btn btn-primary') %>
+</td>
+<td>
+  <%= user.name %>
+</td>
+<td>
+  <%= user.email %>
+</td>
+<td>
+
+</td>
+<%= form_for(user) do |f| %>
+<td>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}, {}, { :class => 'form-control' }) %>
+</td>
+<td>
+    <%= f.submit "Update", :class => 'glyphicon glyphicon-floppy-saved btn btn-success' %>
+</td>
+<% end %>
+<td>
+  <%= user.created_at.strftime("%d %b. %Y") if user.created_at %>
+</td>
+<td>
+  <%= user.last_sign_in_at.strftime("%d %b. %Y") if user.last_sign_in_at %>
+</td>
+<td>
+  <%= link_to("", admin_user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'glyphicon glyphicon-remove btn btn-danger') unless user == current_user %>
+</td>

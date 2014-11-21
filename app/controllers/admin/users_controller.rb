@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  include Pundit
   before_filter :authenticate_user!
   after_action :verify_authorized
 
@@ -11,6 +12,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
     authorize @user
   end
 
@@ -18,9 +20,9 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if @user.update_attributes(secure_params)
-      redirect_to users_path, :notice => "User updated."
+      redirect_to admin_users_path, :notice => "User updated."
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to admin_users_path, :alert => "Unable to update user."
     end
   end
 
@@ -28,7 +30,7 @@ class Admin::UsersController < ApplicationController
     user = User.find(params[:id])
     authorize user
     user.destroy
-    redirect_to users_path, :notice => "User deleted."
+    redirect_to admin_users_path, :notice => "User deleted."
   end
 
   def invite_user

@@ -1,6 +1,5 @@
 <div class="dash-nav container">
   <div class="row">
-  <hr>
 
     <div class="panel">
       <h3><%= content_for?(:title) ? content_for(:title) : "Progressor Admin" %>
@@ -10,7 +9,7 @@
 
     <div class="btn-group" role="group" aria-label="...">
       <%= link_to 'Dashboard', admin_dashboard_path, :class => 'btn btn-success', id: 'tooltip-dashboard', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Dashboard, the home of home.' %>
-      <%= link_to 'Users', users_path, :class => 'btn btn-success', id: 'tooltip-users', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Add, Modify, or Delete Users' %>
+      <%= link_to 'Users', admin_users_path, :class => 'btn btn-success', id: 'tooltip-users', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Add, Modify, or Delete Users' %>
       <%= link_to 'Invitations', admin_invitations_path, :class => 'btn btn-success', id: 'tooltip-invites', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Invite a Friend!' %>
     </div>
   <hr id="under-dash-nav">
