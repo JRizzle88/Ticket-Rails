@@ -1,4 +1,4 @@
-class ApplicationPolicy < ApplicationPolicy
+class ApplicationPolicy
   attr_reader :current_user, :record
 
   def initialize(current_user, record)
