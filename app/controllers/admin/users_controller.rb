@@ -38,7 +38,6 @@ class Admin::UsersController < ApplicationController
     render :json => @user
   end
 
-
   private
 
   def secure_params

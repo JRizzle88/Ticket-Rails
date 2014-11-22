@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     devise_scope :user do
-
       resources :invitations
     end
     get 'dashboard' => 'dashboard#index'
