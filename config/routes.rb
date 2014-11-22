@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+
   root to: 'pages#home'
   devise_for :users, :controllers => { :users => 'devise/invitations' }
+
+
+  resources :tickets
   resources :users
+  resources :categories
+
+
   # Get User Profile
   #get 'users#show'
 
@@ -13,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+
     devise_scope :user do
       resources :invitations
     end

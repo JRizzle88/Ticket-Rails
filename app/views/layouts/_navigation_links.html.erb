@@ -13,6 +13,8 @@
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
         <li><%= link_to current_user.name, edit_user_registration_path %></li>
+        <li><%= link_to 'View Tickets', tickets_path %></li>
+        <li><%= link_to 'Submit Ticket', new_ticket_path %></li>
         <li><%= link_to 'Edit account', edit_user_registration_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
       </ul>
@@ -28,7 +30,7 @@
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
         <li><%= link_to current_user.name, edit_user_registration_path %></li>
-        <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+        <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
         <li class="divider"></li>
         <li><%= link_to 'Administration', admin_dashboard_path %></li>

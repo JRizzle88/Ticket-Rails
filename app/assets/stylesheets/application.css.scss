@@ -25,6 +25,9 @@
 }
 
 /* Extras */
+#flash-messages .alert {
+  z-index:9999 !important;
+}
 .alert {
   position: absolute;
   width: 100%;

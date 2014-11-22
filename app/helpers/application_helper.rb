@@ -44,7 +44,31 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
+  def bootstrap_dropdown_button text, icon, links
+    link_items = ""
+    links.each do |l|
+      link_items += "<li>#{l}</li>"
+    end
+    "
+      <div class=\"btn-group\">
+        <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">
+          <i class=\"#{icon}\"></i> #{text}
+          <span class=\"caret\"></span>
+        </a>
+        <ul class=\"dropdown-menu\">#{link_items}</ul>
+      </div>
+    ".html_safe
+  end
 
+  def ticket_status_label status
+    label = case status
+    when "Open"
+      "success"
+    when "Closed"
+      "danger"
+    end
+  "<span class=\"text-#{label}\">#{status}</span>".html_safe
+  end
 
 
 end

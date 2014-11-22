@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>
+    List of categories
+    <%= bootstrap_icon_link_to 'New Category', new_category_path, "icon-plus icon-white", :class => "btn btn-success" %>
+  </h1>
+</div>
+
+<%= show_flash %>
+
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Tickets</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= category.tickets.count %></td>
+    <td>
+      <%= bootstrap_icon_link_to 'Edit', edit_category_path(category), "icon-pencil icon-white", :class => "btn btn-small btn-primary" %>
+      <%= bootstrap_icon_link_to 'Delete', category, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger" %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>

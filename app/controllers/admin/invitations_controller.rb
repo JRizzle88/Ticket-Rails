@@ -1,4 +1,4 @@
-class Admin::InvitationsController < ApplicationController
+class Admin::InvitationsController < Devise::InvitationsController
   before_filter :authenticate_user!
   after_action :verify_authorized
 
@@ -26,7 +26,7 @@ class Admin::InvitationsController < ApplicationController
     @user = User.find(params[:user_id])
     @user.invite!
 
-    redirect_to admin_invitations_path, :notice=>"Invite resent."
+    redirect_to admin_invitations_path, :notice =>"Invite resent."
   end
 
 end

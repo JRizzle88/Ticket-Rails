@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :tickets
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
@@ -30,4 +32,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_associated?
+    tickets.count > 0
+  end
 end

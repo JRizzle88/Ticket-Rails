@@ -1,6 +1,6 @@
 class InvitationsController < DeviseController
   before_filter :authenticate_user!
-  after_action :verify_authorized
+
 
   def index
     @users = User.all
@@ -18,9 +18,9 @@ class InvitationsController < DeviseController
 
   def resend_invite
     @user = User.find(params[:user_id])
-    @user.invite!
+    @user.resend_invite!
 
     redirect_to admin_invitations_path, :notice=>"Invite resent."
   end
-  
+
 end
