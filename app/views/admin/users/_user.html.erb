@@ -19,10 +19,10 @@
 </td>
 <% end %>
 <td>
-  <%= user.created_at.strftime("%d %b. %Y") if user.created_at %>
+  <%= user.created_at.to_s(:custom_time) if user.created_at %>
 </td>
 <td>
-  <%= user.last_sign_in_at.strftime("%d %b. %Y") if user.last_sign_in_at %>
+  <%= user.last_sign_in_at.to_s(:custom_time) if user.last_sign_in_at %>
 </td>
 <td>
   <%= link_to("", admin_user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'glyphicon glyphicon-remove btn btn-danger') unless user == current_user %>

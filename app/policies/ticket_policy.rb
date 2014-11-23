@@ -15,7 +15,7 @@ class TicketPolicy
   end
 
   def update?
-    @current_user.admin?
+    @current_user.admin? or @current_user == @user
   end
 
   def destroy?

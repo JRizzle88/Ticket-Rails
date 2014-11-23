@@ -1,11 +1,12 @@
 class TicketsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_ticket
+  before_action :set_ticket, only: [:show, :edit, :update, :create]
 
   respond_to :html
 
   def index
-    @tickets = Ticket.includes(:category, :user, :ticket_status)
+    @tickets = Ticket.all.paginate page: params[:page],
+      per_page: 10
     #authorize User
   end
 
@@ -15,7 +16,7 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = Ticket.new()
+    @ticket = Ticket.new
     @ticket.ticket_status = TicketStatus.find_by_name("Open")
   end
 
@@ -24,27 +25,39 @@ class TicketsController < ApplicationController
   end
 
   def create
+
     @ticket = Ticket.new(ticket_params)
-    @ticket.save
+    if @ticket.save
+      redirect_to tickets_path, :notice => "Ticket Submitted."
+    else
+      redirect_to tickets_path, :alert => "Unable to submit ticket."
+    end
+    puts @ticket.errors.inspect
   end
 
   def update
     @ticket = Ticket.find(params[:id])
-    authorize @user
+    if @ticket.update(ticket_params)
+      redirect_to tickets_path, :notice => "Ticket updated."
+    else
+      redirect_to edit_ticket_path, :alert => "Unable to update ticket."
+    end
   end
 
   def destroy
     @ticket = Ticket.find(params[:id])
-    authorize user
     @ticket.destroy
+    redirect_to tickets_path, :notice => "Ticket deleted."
   end
 
   private
+
     def set_ticket
-    #  @ticket = Ticket.find(params[:id])
+      #@ticket = Ticket.find(params[:id])
     end
 
     def ticket_params
-      params[:ticket]
+      params.require(:ticket).permit(:ticket_status_id, :user_id, :category_id, :title, :description)
     end
+
 end

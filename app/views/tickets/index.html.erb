@@ -1,27 +1,54 @@
-<% provide(:title, 'Progressor Tickets') %>
+<% provide(:title, 'Progressor Support Tickets') %>
 <div class="container">
   <div class="row">
     <hr>
-    <%= link_to 'New Ticket', new_ticket_path, :class => "btn btn-success" %>
+    <h3><%= content_for?(:title) ? content_for(:title) : "Progressor Admin" %>
     <span><%= link_to current_user.email, edit_user_registration_path, :class => 'glyphicon glyphicon-user btn btn-primary btn-sm pull-right', id: 'tooltip-profile', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'View Profile' %></span>
+    </h3>
     <hr>
-<table class="table table-striped table-bordered">
-  <thead>
-  <tr>
-    <th>Status</th>
-    <th>Category</th>
-    <th>Title</th>
-    <th>Issued by</th>
-  </tr>
-  </thead>
-  <tbody>
-<% @tickets.each do |ticket| %>
-  <tr>
-    <td><%= ticket_status_label ticket.ticket_status.name %></td>
-    <td><%= ticket.category.name %></td>
-    <td><%= link_to ticket.title, ticket %></td>
-    <td><%= ticket.user.name %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
+
+<%= render 'sidebar' %>
+<div class="col-sm-9">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Issued by</th>
+        <th>Posted</th>
+        <% if current_user.admin? %>
+          <th>Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tickets.each do |ticket| %>
+        <tr>
+          <td><%= ticket_status_label ticket.ticket_status.name %></td>
+          <td><%= link_to ticket.title, ticket %></td>
+          <td><%= ticket.category.name %></td>
+          <td><%= ticket.user.name %></td>
+          <td><%= ticket.created_at.to_s(:custom_time) unless ticket.created_at.blank? %></td>
+          <% if current_user.admin? %>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-block btn-success btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                  <span class="glyphicon-class glyphicon glyphicon-cog"></span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to 'Resolve', admin_dashboard_path %></li>
+                  <li><%= link_to 'Edit', edit_ticket_path(ticket) %></li>
+                  <li><%= link_to 'Delete', ticket_path(ticket), :data => { :confirm => "Are you sure?" }, :method => :delete %></li>
+                </ul>
+              </div>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'New Ticket', new_ticket_path, :class => "btn btn-success pull-right" %>
+</div>

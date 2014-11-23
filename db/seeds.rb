@@ -38,4 +38,9 @@ Category.create([
 ])
 
 Ticket.create(title: "Major Issues", description: "CPU Failure, Can you Help me?", user_id: 13, category_id: 3)
-TicketStatus.create([{name: "Open", position: 1},{name: "Closed", position: 2}])
+
+TicketStatus.create([
+  {name: "Open", position: 1},
+  {name: "Pending", position: 2},
+  {name: "Closed", position: 3}
+])

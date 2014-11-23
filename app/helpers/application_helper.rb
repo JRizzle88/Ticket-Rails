@@ -64,11 +64,14 @@ module ApplicationHelper
     label = case status
     when "Open"
       "success"
+    when "Pending"
+      "warning"
     when "Closed"
       "danger"
     end
-  "<span class=\"text-#{label}\">#{status}</span>".html_safe
+  "<span class=\"btn btn-block btn-sm bg-#{label}\">#{status}</span>".html_safe
   end
+
 
 
 end
