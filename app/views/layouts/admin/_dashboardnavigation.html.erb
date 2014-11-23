@@ -1,16 +1,17 @@
 <div class="dash-nav container">
   <div class="row">
 
-    <div class="panel">
+    <header class="panel">
       <h3><%= content_for?(:title) ? content_for(:title) : "Progressor Admin" %>
       <span><%= link_to current_user.email, edit_user_registration_path, :class => 'glyphicon glyphicon-user btn btn-primary btn-sm pull-right', id: 'tooltip-profile', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'View Profile' %></span>
       </h3>
-    </div>
+    </header>
 
     <div class="btn-group" role="group" aria-label="...">
       <%= link_to 'Dashboard', admin_dashboard_path, :class => 'btn btn-success', id: 'tooltip-dashboard', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Dashboard, the home of home.' %>
       <%= link_to 'Users', admin_users_path, :class => 'btn btn-success', id: 'tooltip-users', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Add, Modify, or Delete Users' %>
       <%= link_to 'Invitations', admin_invitations_path, :class => 'btn btn-success', id: 'tooltip-invites', data: {toggle: 'tooltip', placement: 'bottom'}, :'data-original-title' => 'Invite a Friend!' %>
+      <%= link_to 'Ticket System', tickets_path, :class => 'btn btn-success' %>
     </div>
   <hr id="under-dash-nav">
   </div>

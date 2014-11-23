@@ -1,16 +1,14 @@
 <% provide(:title, 'Progressor Support Tickets') %>
+<%= render 'layouts/frontend_sub_header' %>
 <div class="container">
   <div class="row">
-    <hr>
-    <h3><%= content_for?(:title) ? content_for(:title) : "Progressor Admin" %>
-    <span><%= link_to current_user.email, edit_user_registration_path, :class => 'glyphicon glyphicon-user btn btn-primary btn-sm pull-right', id: 'tooltip-profile', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'View Profile' %></span>
-    </h3>
-    <hr>
 
 <%= render 'sidebar' %>
-<div class="col-sm-9">
-  <table class="table table-striped table-bordered">
-    <thead>
+
+<div class="col-sm-9 n-p-r">
+  <table class="table table-striped table-hover">
+    <tbody>
+
       <tr>
         <th>Status</th>
         <th>Title</th>
@@ -21,8 +19,7 @@
           <th>Actions</th>
         <% end %>
       </tr>
-    </thead>
-    <tbody>
+
       <% @tickets.each do |ticket| %>
         <tr>
           <td><%= ticket_status_label ticket.ticket_status.name %></td>

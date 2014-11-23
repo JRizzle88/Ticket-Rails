@@ -2,14 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tickets .panel h3 {
+aside.panel h3, .ticket-body h3 {
   border-bottom: 1px solid #464545;
   padding-bottom: 5px;
   margin-top: 0px;
 }
-.tickets .panel ul{
+aside.panel ul{
   padding-left: 10px;
 }
-.tickets .panel ul li {
+aside.panel ul li {
   list-style-type: none;
+}
+
+.frontend-nav .panel {
+  padding: 5px;
+  margin-top: 20px;
+  border-bottom: 1px solid #515151;
+}
+.frontend-nav .panel h3 {
+  margin: 0;
+  line-height: 36px;
 }

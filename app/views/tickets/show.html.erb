@@ -1,11 +1,50 @@
 <% provide(:title, 'Progressor Ticket') %>
-<div class="container">
+<%= render 'layouts/frontend_sub_header' %>
+<div class="ticket-nav container">
   <div class="row">
-    <hr>
-    <h3><%= content_for?(:title) ? content_for(:title) : "Progressor Admin" %>
-    <span><%= link_to current_user.email, edit_user_registration_path, :class => 'glyphicon glyphicon-user btn btn-primary btn-sm pull-right', id: 'tooltip-profile', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'View Profile' %></span>
-    </h3>
-    <hr>
+<%= render 'sidebar' %>
 
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<div class="col-sm-9 n-p-r">
+
+  <div class="ticket-body panel">
+      <h3>Ticket Number <%= @ticket.id %></h3>
+      <table class="table table-striped table-hover">
+        <tbody>
+          <tr>
+            <th>Author</th>
+            <td><%= @ticket.user.name %></td>
+          </tr>
+          <tr>
+            <th>Email Address</th>
+            <td><%= @ticket.user.email %></td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td><%= ticket_status_label @ticket.ticket_status.name %></td>
+          </tr>
+          <tr>
+            <th>Category</th>
+            <td><%= @ticket.category.name %></td>
+          </tr>
+          <tr>
+            <th>Title</th>
+            <td><%= @ticket.title %></td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td><%= @ticket.description %></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="comments-count panel">
+    This Ticket has <%= pluralize(@ticket.comments.count, 'comment') %>
+    <%= link_to 'View All Tickets', tickets_path, :class => "btn btn-success" %>
+  </div>
+  <div id="comments-list">
+    <%= render partial: @ticket.reload.comments %>
+  </div>
+  <div id="comments-form">
+    <%= render 'comments/form' %>
+  </div>
+</div>

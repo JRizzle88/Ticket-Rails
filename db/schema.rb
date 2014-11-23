@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122060001) do
+ActiveRecord::Schema.define(version: 20141123025144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20141122060001) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ticket_comments", force: true do |t|
+    t.text     "body"
+    t.integer  "ticket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ticket_comments", ["ticket_id"], name: "index_comments_on_ticket_id", using: :btree
 
   create_table "ticket_statuses", force: true do |t|
     t.string   "name"

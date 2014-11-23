@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :users => 'devise/invitations' }
 
 
-  resources :tickets
+  resources :tickets do
+    resources :comments, :controllers => { :comments => 'tickets' }, :only => [:create, :destroy]
+  end
+
   resources :users
   resources :categories
 

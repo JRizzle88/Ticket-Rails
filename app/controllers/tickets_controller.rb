@@ -12,6 +12,8 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find(params[:id])
+    @comments = @ticket.comments
+    @new_comment = @ticket.comments.new
     #authorize @user
   end
 

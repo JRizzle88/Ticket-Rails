@@ -38,11 +38,12 @@
   padding: 10px;
 }
 
-.no-padding-left {
+/* Padding Classes as quick helpers */
+.no-padding-left, .n-p-l {
   padding-left: 0px !important;
 }
 
-.no-padding-right {
+.no-padding-right, .n-p-r {
   padding-right: 0px !important;
 }
 
