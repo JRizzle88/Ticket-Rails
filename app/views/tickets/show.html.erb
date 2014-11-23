@@ -47,4 +47,5 @@
   <div id="comments-form">
     <%= render 'comments/form' %>
   </div>
+  <%= link_to 'New Comment', tickets_path, :id => "toggleForm", :class => "btn btn-primary pull-right", remote: true %>
 </div>

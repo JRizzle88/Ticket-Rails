@@ -22,9 +22,19 @@ ready = function() {
   $('#tooltip-users').tooltip();
   $('#tooltip-invites').tooltip();
   $('#tooltip-profile').tooltip();
-  $('.container .row .alert').hide().delay(200).fadeIn(800).delay(4000).fadeOut(800)
+  $('.container .row .alert').hide().delay(200).fadeIn(800).delay(4000).fadeOut(800);
   $('.bxslider').bxSlider();
   $('input:checkbox').bootstrapSwitch();
+
+  $('#comments-form').hide(); //Initially form wil be hidden.
+  $('#toggleForm').click(function() {
+     $('#comments-form').slideDown(500);//Form shows on button click
+     $('#toggleForm').hide();
+  });
+  $('#hideForm').click(function() {
+    $('#comments-form').slideUp(300);
+    $('#toggleForm').show();
+  })
 };
 
 $(document).ready(ready);
