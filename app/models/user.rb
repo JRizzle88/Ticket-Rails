@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :tickets
+  accepts_nested_attributes_for :tickets
 
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :subscriber, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   # Setting up default role for a newly registered user to the website
@@ -18,6 +19,16 @@ class User < ActiveRecord::Base
   # Including the devise_invitable gem to allow Admins with the correct permissions to invite other users
   include DeviseInvitable::Inviter
 
+  def confirm!
+      send_welcome_message
+      super
+  end
+
+  def accept_invitation!
+    self.confirm!
+    super
+  end
+
   # Sets the Users column is_active to true - Green - Good to go solder!
   def activate_account!
     update_attribute :is_active, true
@@ -32,7 +43,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.search(search)
+    if search
+      where('email LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
+
   def is_associated?
     tickets.count > 0
+  end
+
+private
+
+  def send_welcome_message
+    UserMailer.welcome_email(self).deliver
   end
 end

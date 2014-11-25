@@ -20,6 +20,13 @@ gem 'pundit'
 gem 'simple_form'
 gem 'thin'
 
+# Charts and Reports - http://ankane.github.io/chartkick/
+gem 'chartkick'
+# Helps with time queries seconds, minutes, hours, weeks, days, months, years - https://github.com/ankane/groupdate
+gem 'groupdate'
+# Future use for Newsletters
+gem 'delayed_job_active_record'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

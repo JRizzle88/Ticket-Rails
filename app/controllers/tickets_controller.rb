@@ -1,20 +1,25 @@
 class TicketsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_ticket, only: [:show, :edit, :update, :create]
+  before_action :set_ticket
 
   respond_to :html
 
   def index
-    @tickets = Ticket.all.paginate page: params[:page],
-      per_page: 10
-    #authorize User
+    # GET all tickets
+    #@tickets = Ticket.all.paginate page: params[:page],
+      #per_page: 15
+    @tickets = Ticket.search(params[:search]).paginate(:per_page => 15, :page => params[:page])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render :xml => @tickets }
+      format.js # index.js.erb
+    end
   end
 
   def show
     @ticket = Ticket.find(params[:id])
     @comments = @ticket.comments
     @new_comment = @ticket.comments.new
-    #authorize @user
   end
 
   def new
@@ -27,9 +32,10 @@ class TicketsController < ApplicationController
   end
 
   def create
-
     @ticket = Ticket.new(ticket_params)
     if @ticket.save
+      # Sends email to that is set in admin_mailer.rb
+      AdminMailer.new_ticket(@ticket).deliver
       redirect_to tickets_path, :notice => "Ticket Submitted."
     else
       redirect_to tickets_path, :alert => "Unable to submit ticket."

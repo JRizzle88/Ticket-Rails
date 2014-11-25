@@ -1,7 +1,6 @@
 class InvitationsController < DeviseController
   before_filter :authenticate_user!
 
-
   def index
     @users = User.all
 
@@ -9,7 +8,7 @@ class InvitationsController < DeviseController
   end
 
   def show
-    
+
   end
 
   def after_accept_path_for

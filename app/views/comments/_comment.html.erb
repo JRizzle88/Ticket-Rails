@@ -1,8 +1,8 @@
 
-    <div class="panel">
-      <div id="comment-id-#{@comment.id}">
+
+      <div class="ticket-comment bg-success" id="comment-id-<%= comment.id %>">
         <p>
-          <b>User</b>
+          <b>User:</b>
           <%= @ticket.user.name %>
         </p>
 
@@ -19,4 +19,3 @@
 
         <% end %>
       </div>
-    </div>

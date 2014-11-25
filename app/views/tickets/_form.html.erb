@@ -1,14 +1,12 @@
+
+<%= render 'layouts/frontend_sub_header' %>
 <div class="container">
   <div class="row">
-    <hr>
-    <h3><%= content_for?(:title) ? content_for(:title) : "Progressor Admin" %>
-    <span><%= link_to current_user.email, edit_user_registration_path, :class => 'glyphicon glyphicon-user btn btn-primary btn-sm pull-right', id: 'tooltip-profile', data: {toggle: 'tooltip', placement: 'right'}, :'data-original-title' => 'View Profile' %></span>
-    </h3>
-    <hr>
 
 <%= render 'sidebar' %>
 
-<div class="col-sm-9">
+<div class="ticket-body col-sm-9 panel">
+  <h3>Fill out the following to Submit a Ticket</h3>
   <%= form_for @ticket do |f| %>
     <% if @ticket.errors.any? %>
       <div class="alert alert-error">
@@ -21,7 +19,7 @@
         </ul>
       </div>
     <% end %>
-  <table class="table panel">
+  <table class="table">
     <tbody>
       <tr>
         <td><%= f.hidden_field :user_id, value: current_user.id  %></td>
@@ -44,6 +42,7 @@
       </tr>
     </tbody>
   </table>
+  <hr>
     <div class="form-actions">
       <% if @ticket.id %>
         <%= link_to 'Cancel', tickets_path, :class => "btn btn-danger" %>

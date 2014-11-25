@@ -1,13 +1,19 @@
 <% provide(:title, 'Progressor Ticket') %>
 <%= render 'layouts/frontend_sub_header' %>
-<div class="ticket-nav container">
+<div class="container">
   <div class="row">
+
 <%= render 'sidebar' %>
+<div class="col-sm-9 panel">
+  <%= link_to 'View All Tickets', tickets_path, :class => "btn btn-success btn-sm" %>
+  <% if current_user.admin? %>
+    <%= link_to "Edit Ticket", edit_ticket_path, :class => 'btn btn-primary btn-sm', title: 'Edit Ticket', rel: 'tooltip' %>
+  <% end %>
+</div>
+<div class="col-sm-9 panel">
 
-<div class="col-sm-9 n-p-r">
-
-  <div class="ticket-body panel">
-      <h3>Ticket Number <%= @ticket.id %></h3>
+  <div class="ticket-body">
+      <h3>Ticket #<%= @ticket.id %></h3>
       <table class="table table-striped table-hover">
         <tbody>
           <tr>
@@ -37,9 +43,10 @@
         </tbody>
       </table>
   </div>
-  <div class="comments-count panel">
+  <div class="comments-count">
+    <hr class="comment-hr">
     This Ticket has <%= pluralize(@ticket.comments.count, 'comment') %>
-    <%= link_to 'View All Tickets', tickets_path, :class => "btn btn-success" %>
+    <hr class="comment-hr">
   </div>
   <div id="comments-list">
     <%= render partial: @ticket.reload.comments %>

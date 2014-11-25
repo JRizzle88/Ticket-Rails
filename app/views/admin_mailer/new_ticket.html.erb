@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New Ticket  <%= @ticket.id %></h1>
+    <strong><%= @ticket.user.name %></strong>
+    <p>Ticket Title: <%= @ticket.title %></p>
+    <p>Ticket Description: <%= @ticket.description %></p>
+  </body>
+</html>

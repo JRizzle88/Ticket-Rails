@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @users = User.all.paginate page: params[:page],
+    @users = User.search(params[:search]).paginate page: params[:page],
       per_page: 10
 
     authorize User

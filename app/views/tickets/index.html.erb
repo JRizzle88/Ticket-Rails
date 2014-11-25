@@ -4,8 +4,27 @@
   <div class="row">
 
 <%= render 'sidebar' %>
+<div class="col-sm-9 panel">
 
-<div class="col-sm-9 n-p-r">
+  <div class="col-sm-6">
+    <%= form_tag tickets_path, method: :get do %>
+       <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: 'form-control' %>
+        <span class="input-group-btn">
+        <%= submit_tag "Search", :name => nil, class: 'btn btn-success' %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= link_to 'New Ticket', new_ticket_path, :class => "btn btn-success btn-sm pull-right" %>
+  </div>
+</div>
+  <div class="">
+    <hr>
+  </div>
+<div class="col-sm-9 panel">
   <table class="table table-striped table-hover">
     <tbody>
 
@@ -46,6 +65,8 @@
       <% end %>
     </tbody>
   </table>
-
   <%= link_to 'New Ticket', new_ticket_path, :class => "btn btn-success pull-right" %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= will_paginate @tickets %>
 </div>

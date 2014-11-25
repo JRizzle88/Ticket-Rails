@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(secure_params[:id])
     authorize @user
     if @user.update_attributes(secure_params)
       redirect_to admin_users_path, :notice => "User updated."
@@ -36,11 +36,10 @@ class UsersController < ApplicationController
     render :json => @user
   end
 
-
   private
 
   def secure_params
-    params.require(:user).permit(:role)
+    params.require(:user).permit(:id, :name, :email, :role)
   end
 
 end

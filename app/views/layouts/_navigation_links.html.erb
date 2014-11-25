@@ -1,7 +1,12 @@
 <%# add navigation links to this file %>
   <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
   <li class="<%= 'active' if current_page?(glyphicons_path) %>"><%= link_to "Glyphicons", glyphicons_path %></li>
+  <li class="<%= 'active' if current_page?(features_path) %>"><%= link_to "Features", features_path %></li>
   <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path %></li>
+
+<% if user_signed_in? %>
+  <% if current_user.user? || current_user.subscriber? %>
+
   <li>
     <div class="dropdown">
       <button class="btn btn-success btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -9,13 +14,10 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
-        <li class="<%= 'active' if current_page?(tickets_path) %>"><%= link_to "Tickets", tickets_path %></li>
+        <li><%= link_to "Tickets", tickets_path %></li>
       </ul>
     </div>
   </li>
-
-<% if user_signed_in? %>
-  <% if current_user.user? || current_user.vip? %>
 
   <li>
     <div class="dropdown">

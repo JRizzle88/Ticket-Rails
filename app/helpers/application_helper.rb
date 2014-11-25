@@ -69,9 +69,7 @@ module ApplicationHelper
     when "Closed"
       "danger"
     end
-  "<span class=\"btn btn-sm bg-#{label}\">#{status}</span>".html_safe
+  "<span class=\"label label-#{label}\">#{status}</span>".html_safe
   end
-
-
 
 end

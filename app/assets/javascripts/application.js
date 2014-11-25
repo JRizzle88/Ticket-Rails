@@ -22,19 +22,39 @@ ready = function() {
   $('#tooltip-users').tooltip();
   $('#tooltip-invites').tooltip();
   $('#tooltip-profile').tooltip();
+
+  // Fades out the flash message after a 4000ms setting
   $('.container .row .alert').hide().delay(200).fadeIn(800).delay(4000).fadeOut(800);
+
+  // Slider by bxSlider
   $('.bxslider').bxSlider();
+
+  // On or Off visual switch JavaScript
   $('input:checkbox').bootstrapSwitch();
 
+  // Neat little feature that shows the form when Add Comment button is clicked
   $('#comments-form').hide(); //Initially form wil be hidden.
   $('#toggleForm').click(function() {
      $('#comments-form').slideDown(500);//Form shows on button click
      $('#toggleForm').hide();
   });
-  $('#hideForm').click(function() {
-    $('#comments-form').slideUp(300);
-    $('#toggleForm').show();
-  })
+
+  // Not Currently being used -- Will use in the future
+  //$('#hideForm').click(function() {
+  //  $('#comments-form').slideUp(300);
+  //  $('#toggleForm').show();
+  //})
+
+  // Tickets Sortable and searching
+  //$("#tickets th a, #products .pagination a").live("click", function() {
+  //  $.getScript(this.href);
+  //  return false;
+  //});
+  $("#tickets_search input").keyup(function() {
+    $.get($("#tickets_search").attr("action"), $("#tickets_search").serialize(), null, "script");
+    return false;
+  });
+
 };
 
 $(document).ready(ready);
