@@ -16,6 +16,9 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
+      <% if current_user.admin? %>
+        <%= render 'layouts/admin/dashboardnavigation' %>
+      <% end %>
        <%= render 'layouts/messages' %>
 
 

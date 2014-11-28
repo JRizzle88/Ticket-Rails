@@ -1,5 +1,5 @@
 <% provide(:title, 'Progressor Support Tickets') %>
-<%= render 'layouts/frontend_sub_header' %>
+
 <div class="container">
   <div class="row">
 
@@ -9,7 +9,7 @@
   <div class="col-sm-6">
     <%= form_tag tickets_path, method: :get do %>
        <div class="input-group">
-        <%= text_field_tag :search, params[:search], class: 'form-control' %>
+        <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => 'Search by Ticket Title' %>
         <span class="input-group-btn">
         <%= submit_tag "Search", :name => nil, class: 'btn btn-success' %>
         </span>
@@ -49,7 +49,7 @@
           <% if current_user.admin? %>
             <td>
               <div class="dropdown">
-                <button class="btn btn-block btn-success btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                <button class="btn btn-block btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                   <span class="glyphicon-class glyphicon glyphicon-cog"></span>
                   <span class="caret"></span>
                 </button>

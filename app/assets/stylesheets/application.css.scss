@@ -34,8 +34,14 @@
   max-width: 1160px;
 }
 
+.btn {
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.3);
+}
 .panel {
-  padding: 10px;
+  padding: 5px;
+  background: #F4F4F4;
 }
 
 /* Padding Classes as quick helpers */
@@ -52,6 +58,7 @@
 header .btn {
   border: 0;
   border-radius: 0;
+  line-height: 30px;
 }
 
 /* bxSlider - */
@@ -108,9 +115,6 @@ header .btn {
 
 }
 
-.service-main h2 {
-  color: #00BC8C;
-}
 
 /*
  * Anything that is ABOVE the queries below will be queried no matter what and

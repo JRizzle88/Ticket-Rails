@@ -1,8 +1,8 @@
 <% provide(:title, 'Progressor Dashboard') %>
-<%= render 'layouts/admin/dashboardnavigation' %>
 <div class="container">
   <div class="row">
       <div class="col-sm-6 no-padding-left">
+        <h1 class="dash-header">Statistics</h3>
         <div class="panel">
           <h3>Total Users: <%= @usersCount %></h3>
           <%= line_chart User.group_by_day(:created_at).count, colors: ["red"] %>
@@ -14,8 +14,8 @@
       </div>
 
       <div class="col-sm-6 no-padding-right">
+        <h1 class="dash-header">Newest Users</h3>
         <div class="panel">
-          <h3>Newest Users</h3>
           <table class="table table-striped">
             <tbody>
               <tr>

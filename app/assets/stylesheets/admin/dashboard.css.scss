@@ -4,6 +4,12 @@
 hr#under-dash-nav {
   margin-top: 2px !important;
 }
+.dash-nav {
+  margin-bottom: 10px;
+}
+.dash-nav .row{
+  border-bottom: 1px solid #515151;
+}
 .dash-nav .panel {
   padding: 5px;
   margin-top: 20px;
@@ -12,4 +18,12 @@ hr#under-dash-nav {
 .dash-nav .panel h3 {
   margin: 0;
   line-height: 36px;
+}
+
+h1.dash-header {
+  margin: 0px;
+  padding: 5px 10px;
+  border-bottom: 2px solid #2196F3;
+  color: #222222;
+  font-size: 25px;
 }

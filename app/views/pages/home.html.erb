@@ -1,20 +1,10 @@
 <% provide(:title, '') %>
-<div id="slider">
-  <ul class="bxslider">
-  	<li>
-      <%= image_tag "slide1-cut.jpeg" %>
-      <div id="slide1-overlay1"><h2>PASSION</h2></div>
-      <div id="slide1-overlay2"><h1>GET INVOLVED</h1></div>
-      <%= link_to "SIGN UP NOW", new_user_registration_path, :class => 'slide1-action btn btn-success btn-lg' %>
-    </li>
-  	<li>
-      <%= image_tag "slide2-cut.jpeg" %>
-    </li>
-  	<li>
-      <%= image_tag "slide3-cut.jpeg" %>
-    </li>
-  </ul>
-</div>
+<% provide(:jumbotron, '
+      <h1>Glyphicons and Tooltip</h1>
+      <p>Used as a Glyphicons personal reference</p>
+      <p>Tooltips javascript call is in /app/assets/javascripts/</p>
+      <p><a class="btn btn-primary btn-lg" role="button">Get Involved</a></p>
+  '.html_safe)%>
 
   <div class="container">
     <!-- Example row of columns -->

@@ -1,5 +1,4 @@
 <% provide(:title, 'Progressor Invitations') %>
-<%= render 'layouts/admin/dashboardnavigation' %>
 <div class="container">
   <div class="row">
 
@@ -7,7 +6,7 @@
       <div class="panel">
         <%= form_tag admin_invitations_path, method: :get do %>
            <div class="input-group">
-            <%= text_field_tag :search, params[:search], class: 'form-control' %>
+            <%= text_field_tag :search, params[:search], class: 'form-control', :placeholder => 'Search by User Email' %>
             <span class="input-group-btn">
             <%= submit_tag "Search", :name => nil, class: 'btn btn-success' %>
             </span>
@@ -33,7 +32,7 @@
                 <td><div class="glyphicon glyphicon-<%= user.encrypted_password == '' ? 'remove' : 'ok' %> btn btn-sm btn-<%= user.encrypted_password == '' ? 'danger' : 'success' %>"></div></td>
                 <td>
                   <div class="dropdown">
-                    <button class="btn btn-success btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    <button class="btn btn-sm" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
                       <span class="glyphicon-class glyphicon glyphicon-cog"></span>
                       <span class="caret"></span>
                     </button>
@@ -49,10 +48,10 @@
         </table>
     </div>
 
-    <div class="col-lg-4 no-padding-right">
+    <div class="col-lg-4 panel">
       <%= link_to 'Invite someone you know!', new_user_invitation_path, :class => 'btn btn-primary btn-block', id: 'tooltip-invites', data: {toggle: 'tooltip', placement: 'top'}, :'data-original-title' => 'Get them in here!' %>
       <hr>
-      <div class="panel">
+      <div class="">
         <ul>
           <h3>Features</h3>
           <li>Invite whoever by email.</li>
