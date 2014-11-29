@@ -6,3 +6,21 @@
 
 // And finally Bootswatch style
 //@import "bootswatch/paper/bootswatch";
+
+/* Main and Header */
+body {
+
+}
+header nav.navbar {
+  background-color: rgba(255,255,255,0.8);
+  border-color: #156A95;
+}
+
+#logo {
+  margin-top: 5px;
+}
+
+/* Body */
+.jumbotron {
+  color: #156A95;
+}
