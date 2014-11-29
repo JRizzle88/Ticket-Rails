@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :users
   resources :categories
 
-
   # Get User Profile
   #get 'users#show'
 

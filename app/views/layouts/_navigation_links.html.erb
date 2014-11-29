@@ -10,10 +10,11 @@
   <li>
     <div class="dropdown">
       <button class="btn btn-link btn-lg" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-        <span class="glyphicon-class glyphicon glyphicon-question-sign"></span>
+        <span class="glyphicon-class glyphicon glyphicon-user"></span>
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+        <li><%= link_to "Profile", user_path(current_user) %></li>
         <li><%= link_to "Tickets", tickets_path %></li>
       </ul>
     </div>
@@ -30,7 +31,7 @@
         <li><%= link_to 'View Tickets', tickets_path %></li>
         <li><%= link_to 'Submit Ticket', new_ticket_path %></li>
         <li class="divider"></li>
-        <li><%= link_to current_user.name, edit_user_registration_path %></li>
+        <li><%= link_to current_user.name, user_path(current_user) %></li>
         <li><%= link_to 'Edit account', edit_user_registration_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
       </ul>
@@ -48,7 +49,7 @@
         <li><%= link_to 'Administration', admin_dashboard_path %></li>
         <li><%= link_to 'View Tickets', tickets_path %></li>
         <li class="divider"></li>
-        <li><%= link_to current_user.name, edit_user_registration_path %></li>
+        <li><%= link_to current_user.name, user_path(current_user) %></li>
         <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
 
