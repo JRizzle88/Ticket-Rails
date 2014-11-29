@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: "Progressor"
+  default from: "Progressor Ticket Notification"
 
   def new_ticket(ticket)
     @ticket = ticket
