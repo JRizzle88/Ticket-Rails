@@ -38,7 +38,7 @@
           <th>Actions</th>
         <% end %>
       </tr>
-      <% if current_user.user? %>
+      <% if current_user.user? || current_user.admin? %>
       <% @tickets.each do |ticket| %>
         <tr>
           <td><%= ticket_status_label ticket.ticket_status.name %></td>
@@ -67,7 +67,6 @@
     </tbody>
   </table>
   <%= link_to 'New Ticket', new_ticket_path, :class => "btn btn-success pull-right" %>
-  <%= hidden_field_tag :direction, params[:direction] %>
-  <%= hidden_field_tag :sort, params[:sort] %>
+
   <%= will_paginate @tickets %>
 </div>
