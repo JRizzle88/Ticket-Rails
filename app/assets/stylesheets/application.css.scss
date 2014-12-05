@@ -23,7 +23,9 @@
        url('../assets/glyphicons-halflings-regular.ttf') format('truetype'),
        url('../assets/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
-
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
 /* Extras */
 #flash-messages .alert {
   z-index:9999 !important;
@@ -115,7 +117,33 @@ header .btn {
 
 }
 
+/* Footer */
+.footer-main, .footer-main a {
+  color: #F4F4F4;
+}
+.footer-main h1 {
+  border-bottom: 2px solid white;
+}
 
+/* Controller and Action Specific - Mainly to hide particular areas for specific views */
+body.sessions, body.sessions .authform a {
+  color: white;
+  background-color: #337AB7;
+
+  /* Action name &.action */
+  &.new footer {
+    display: none;
+  }
+}
+body.registrations, body.registrations .authform a  {
+  color: white;
+  background-color: #337AB7;
+
+  /* Action name &.action */
+  &.new footer {
+    display: none;
+  }
+}
 /*
  * Anything that is ABOVE the queries below will be queried no matter what and
  * will be overwritten by anything of the same ID or Class in the media queries below.

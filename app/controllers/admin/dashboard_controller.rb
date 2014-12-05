@@ -3,7 +3,7 @@ class Admin::DashboardController < ApplicationController
   before_filter :authenticate_user!
   after_action :verify_authorized
 
-  layout 'dashboard'
+  layout 'admin/dashboard'
 
   def index
     # Get Current time

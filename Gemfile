@@ -14,6 +14,8 @@ gem 'bootswatch-rails'
 gem 'high_voltage'
 gem 'devise'
 gem 'devise_invitable'
+# Running up Feature
+#gem 'omniauth'
 gem 'will_paginate'
 gem 'pg'
 gem 'pundit'
