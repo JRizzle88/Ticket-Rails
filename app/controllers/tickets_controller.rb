@@ -1,14 +1,16 @@
 class TicketsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_ticket
-
+  helper_method :sort_column, :sort_direction
   respond_to :html
 
   def index
     # GET all tickets
     #@tickets = Ticket.all.paginate page: params[:page],
       #per_page: 15
-    @tickets = Ticket.search(params[:search]).paginate(:per_page => 15, :page => params[:page])
+    # Make users initally sorted by name ascending
+
+    @tickets = Ticket.search(params[:search]).paginate(:per_page => 15, :page => params[:page]).order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @tickets }
@@ -59,6 +61,14 @@ class TicketsController < ApplicationController
   end
 
   private
+
+    def sort_column
+      Ticket.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
 
     def set_ticket
       #@ticket = Ticket.find(params[:id])

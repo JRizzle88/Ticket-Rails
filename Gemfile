@@ -22,6 +22,8 @@ gem 'pundit'
 gem 'simple_form'
 gem 'thin'
 
+
+
 # Charts and Reports - http://ankane.github.io/chartkick/
 gem 'chartkick'
 # Helps with time queries seconds, minutes, hours, weeks, days, months, years - https://github.com/ankane/groupdate

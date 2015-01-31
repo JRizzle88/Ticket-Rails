@@ -33,3 +33,17 @@ aside.panel ul li {
   padding: 10px;
   margin: 10px 0px;
 }
+
+    .pretty th .current {
+      padding-right: 12px;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+
+    .pretty th .asc {
+      background: url(/assets/arrow70.png) no-repeat right;
+    }
+
+    .pretty th .desc {
+      background: url(/assets/arrow70.png) no-repeat right;
+    }

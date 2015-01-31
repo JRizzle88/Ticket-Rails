@@ -26,6 +26,15 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
 }
+a, button, select {
+   outline: 0 !important;
+   text-decoration: none !important;
+}
+a:hover,
+button {
+  text-decoration: none !important;
+}
+.home .authform p { display: none; }
 /* Extras */
 #flash-messages .alert {
   z-index:9999 !important;

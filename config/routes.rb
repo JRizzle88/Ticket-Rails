@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #get 'users#show'
 
   # Static Pages
-  get '/glyphicons'    => 'high_voltage/pages#show', id: 'glyphicons'
+  get '/about'    => 'high_voltage/pages#show', id: 'about'
   get '/features'    => 'high_voltage/pages#show', id: 'features'
   get '/contact'  => 'high_voltage/pages#show', id: 'contact'
   get '/privacy'  => 'high_voltage/pages#show', id: 'privacy'
