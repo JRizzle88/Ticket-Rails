@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   has_many :tickets
+  has_many :projects
 
   accepts_nested_attributes_for :tickets
+  accepts_nested_attributes_for :projects
 
   enum role: [:user, :subscriber, :admin]
   after_initialize :set_default_role, :if => :new_record?

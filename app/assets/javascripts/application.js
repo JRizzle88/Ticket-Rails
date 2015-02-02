@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require best_in_place
 //= require_tree .
 
 var ready;
@@ -28,9 +29,6 @@ ready = function() {
 
   // Slider by bxSlider
   $('.bxslider').bxSlider();
-
-  // On or Off visual switch JavaScript
-  $('input:checkbox').bootstrapSwitch();
 
   // Neat little feature that shows the form when Add Comment button is clicked
   $('#comments-form').hide(); //Initially form wil be hidden.
@@ -54,6 +52,23 @@ ready = function() {
     $.get($("#tickets_search").attr("action"), $("#tickets_search").serialize(), null, "script");
     return false;
   });
+
+  /* Activating Best In Place */
+  $(".best_in_place").best_in_place();
+
+  $(".task-check").bind('change', function(){
+    if (this.checked){
+      $.ajax({
+        url: '/todos/'+this.value+'/toggle',
+        type: 'POST',
+        data: {"completed": this.checked}
+      });
+    }
+    else {
+       alert("no");
+    }
+  });
+
 
 };
 

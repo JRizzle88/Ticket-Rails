@@ -1,0 +1,45 @@
+<% provide(:title, 'Progressor Project') %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 panel project-ownership">
+      <%= link_to 'View All Projects', projects_path, :class => "btn btn-success btn-sm" %>
+      <%= link_to "Edit Project", edit_project_path, :class => 'btn btn-primary btn-sm', title: 'Edit Project', rel: 'tooltip' %>
+    </div>
+
+    <div class="col-sm-12 panel project-information">
+      <div class="col-xs-6">
+        <b>Owner:</b> <%= @project.user.name %><br>
+      </div>
+      <div class="col-xs-6">
+        <b>Owner Email:</b> <%= @project.user.email %>
+      </div>
+      <hr>
+      <div class="col-xs-6">
+        <h3 class="m-t-0">Project Information</h3>
+        <b>Name:</b> <%= @project.name %><br>
+        <b>Description:</b> <%= @project.description %><br>
+        <b>Deadline:</b> <%= @project.due_date %><br>
+        <b>Tasks:</b> <%= pluralize(@project.tasks.count, 'task') %>
+      </div>
+    </div>
+    <h3>Tasks</h3>
+    <hr>
+    <div class="col-sm-12 panel project-tasks">
+
+        <div id="task-form">
+
+          <%= render 'tasks/form' %>
+
+        </div>
+    </div>
+    <div class="col-sm-12 project-tasks-list">
+        <div id="tasks-list-container">
+          <div id="tasks-list">
+            <%= render partial: @project.reload.tasks %>
+          </div>
+        </div>
+    </div>
+
+
+  </div>
+</div>

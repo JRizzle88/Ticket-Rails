@@ -1,0 +1,10 @@
+console.log('running task create');
+var tasks_list = $('#tasks-list');
+tasks_list.append('<%= escape_javascript(render :partial => 'tasks/task', :formats => :html, locals: { task: @task } ) %>');
+tasks_list.find('div:last-child').addClass('last-task');
+
+$('#tasks').html('This article has <%= escape_javascript(pluralize(@project.tasks.count, 'task')) %>');
+
+$('#tasks-form').html('<%= escape_javascript(render("tasks/form")) %>');
+
+$('#task-body .form-control').val('');

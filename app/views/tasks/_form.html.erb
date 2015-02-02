@@ -1,0 +1,15 @@
+
+<div class="bg-primary">
+
+<%= form_for [@project, @new_task], remote: true do |f| %>
+  <div id="task-body">
+    <div class="field col-xs-11">
+      <%= f.text_field :title, :class => 'form-control', :placeholder => 'Add New Task' %>
+    </div>
+    <div class="actions col-xs-1">
+      <%= f.submit "Add Task", :class => 'btn btn-success btn-md pull-right', :remote => true %>
+    </div>
+  </div>
+<% end %>
+
+</div>

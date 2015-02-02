@@ -1,0 +1,29 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Helpers */
+.m-t-0 { margin-top: 0px !important; }
+
+.projects .glyphicon-folder-open {
+  margin-right: 15px;
+}
+
+.projects .project.panel:hover {
+  background-color: #f4f4f4;
+}
+
+.projects .project-actions ul li a:before {
+  padding-right: 15px;
+}
+
+
+.glyphicon-trash {
+  color: red !important;
+}
+
+.list-group-item:hover {
+  background-color: #f4f4f4;
+  transition: all ease-in-out 0.2s;
+}

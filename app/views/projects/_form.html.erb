@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+      <%= form_for @project do |f| %>
+
+        <% if @project.errors.any? %>
+          <div class="alert alert-error">
+            <b><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</b>
+
+            <ul>
+              <% @project.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="panel">
+          <div class="col-sm-12">
+            <%= f.hidden_field :user_id, value: current_user.id  %>
+            <%= f.label :name %>
+            <%= f.text_field :name, :class => 'form-control' %>
+            <%= f.label :description %>
+            <%= f.text_area :description, :class => 'form-control' %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.label :due_date %>
+            <%= f.date_field :due_date, :class => 'form-control' %>
+          </div>
+          <div class="clearfix"></div>
+          <hr>
+        <div class="form-actions">
+
+            <% if @project.id %>
+              <%= link_to 'Cancel', projects_path, :class => "btn btn-danger" %>
+            <% else %>
+              <%= link_to 'Cancel', projects_path, :class => "btn btn-danger" %>
+            <% end %>
+            <%= f.submit nil, :class => 'btn btn-success' %>
+
+        </div>
+      </div>
+      <% end %>
+
+  </div>
+</div>

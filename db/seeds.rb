@@ -22,18 +22,11 @@ User.create(name: "Hiba Farran", email: "hfa@tdh.ch", password: "hfahfa", passwo
 User.create(name: "Immad Orouqi", email: "ior@tdh.ch", password: "iorior", password_confirmation: "iorior", role: 0)
 
 Category.create([
-  {name: "Case Registration"},
-  {name: "Family"},
-  {name: "Baseline Indicators"},
-  {name: "Vulnerability Assessment"},
-  {name: "Action Plan"},
-  {name: "Referrals"},
-  {name: "Meetings"},
-  {name: "Case Notes"},
-  {name: "Closure Checklist"},
-  {name: "User Dashboard"},
-  {name: "Service Providers"},
-  {name: "Individuals"},
+  {name: "Profiles"},
+  {name: "Projects"},
+  {name: "Tasks"},
+  {name: "Tickets"},
+  {name: "Sitewide"},
   {name: "Other"},
 ])
 

@@ -22,7 +22,7 @@ module ApplicationHelper
 
   def meta_description
     # Change the value below between the quotes.
-    "Providing tools to increase productivity for an individual or a small to large size company."
+    "Providing tools to increase productivity for an individual or a small company."
   end
 
   def meta_keywords

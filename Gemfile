@@ -22,6 +22,8 @@ gem 'pundit'
 gem 'simple_form'
 gem 'thin'
 
+# Inplace Editing
+gem 'best_in_place', '~> 3.0.1'
 
 
 # Charts and Reports - http://ankane.github.io/chartkick/

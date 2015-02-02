@@ -6,15 +6,17 @@
       <p>Manage yourself.</p>
     </div>
       <hr>
-      <p class="pull-right">
-        <%= link_to '<span class="glyphicon-class glyphicon glyphicon-chevron-up"></span> Back to top'.html_safe, '#Top' %>
-      </p>
-    <p>
-      &copy; <%= Time.now.year %> <%= site_name %>
-      &bull;
-      <%= link_to "Privacy", privacy_path %></li>
-      &bull;
-      <%= link_to "Terms", terms_path %></li>
-    </p>
+      <div class="col-sm-12">
+        <p class="pull-right">
+          <%= link_to '<span class="glyphicon glyphicon-circle-arrow-up"></span> Back to top'.html_safe, '#Top' %>
+        </p>
+        <p>
+          &copy; <%= Time.now.year %> <%= site_name %>
+          &bull;
+          <%= link_to "Privacy", privacy_path %></li>
+          &bull;
+          <%= link_to "Terms", terms_path %></li>
+        </p>
+      </div>
   </div>
 </div>
