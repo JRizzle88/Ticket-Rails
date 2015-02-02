@@ -54,9 +54,8 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to 'Resolve', admin_dashboard_path %></li>
-                  <li><%= link_to 'Edit', edit_ticket_path(ticket) %></li>
-                  <li><%= link_to 'Delete', ticket_path(ticket), :data => { :confirm => "Are you sure?" }, :method => :delete %></li>
+                  <li><%= link_to 'Edit', edit_ticket_path(ticket), class: 'glyphicon glyphicon-pencil' %></li>
+                  <li><%= link_to 'Delete', ticket_path(ticket), :data => { :confirm => "Are you sure?" }, :method => :delete, class: 'glyphicon glyphicon-remove' %></li>
                 </ul>
               </div>
             </td>
