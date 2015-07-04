@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20150201051047) do
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "state",      default: 1
+    t.integer  "state",      default: 0
   end
 
   create_table "ticket_statuses", force: true do |t|
